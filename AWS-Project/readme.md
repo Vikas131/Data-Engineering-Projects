@@ -60,5 +60,39 @@ All services are deployed inside a VPC with appropriate security groups and priv
 
 📎 Replace the image file path below with your final diagram location in your repo.
 
-```markdown
-![AWS Architecture](/Flowcharts/AWS_Architecture.png)
+---
+
+## 🧰 Tech Stack
+
+This project was implemented using a combination of Python-based data processing and AWS serverless components to construct an end-to-end ETL pipeline for electric vehicle data ingestion and analysis.
+
+### Programming Language
+
+- Python 3.12
+
+### Python Libraries
+
+- requests – For HTTP GET requests to the public API  
+- pandas – Data manipulation and transformation  
+- boto3 – AWS SDK for Python, used for interacting with S3 and Secrets Manager  
+- sqlalchemy – For constructing and managing the PostgreSQL connection string  
+- psycopg2 – PostgreSQL database driver used for executing queries  
+- json, io, os, logging, datetime, unittest – Standard libraries for auxiliary tasks such as logging, environment variable handling, and in-memory stream management  
+
+### AWS Services
+
+| AWS Service                         | Purpose                                                                                             |
+|-------------------------------------|-----------------------------------------------------------------------------------------------------|
+| AWS Lambda                          | Serverless compute functions for data extraction and loading                                       |
+| Amazon S3                           | Temporary staging area for raw data in CSV/JSON format                                             |
+| Amazon RDS (PostgreSQL 13.20)       | Persistent relational database for structured EV data                                               |
+| AWS Secrets Manager                 | Secure storage for database credentials and S3 bucket name                                          |
+| AWS Step Functions                  | Workflow orchestration to manage the ETL process                                                    |
+| Amazon EventBridge                  | Scheduled trigger to initiate the workflow                                                          |
+| Amazon SNS                          | Notification service for success/failure alerts                                                     |
+| Amazon CloudWatch                   | Monitoring and log aggregation for all execution components                                         |
+| VPC, Security Groups, and Endpoints | Used to isolate and secure service interactions within a private network                            |
+
+### Deployment
+
+- Manual Configuration – All AWS resources were provisioned and configured manually via the AWS Management Console; no infrastructure-as-code tools (e.g., Terraform, CloudFormation, or CDK) were used.
