@@ -59,6 +59,7 @@ All services are deployed inside a VPC with appropriate security groups and priv
 ## 📊 Architecture Diagram
 
 📎 Replace the image file path below with your final diagram location in your repo.
+![AWS Architecture Diagram](./Flowcharts/AWS_Architecture.png)
 
 ---
 
