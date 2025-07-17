@@ -1,0 +1,119 @@
+{
+  "Comment": "A description of my state machine",
+  "StartAt": "Notify: Start Step function and lambda",
+  "States": {
+    "Notify: Start Step function and lambda": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::sns:publish",
+      "Parameters": {
+        "TopicArn": "*******",
+        "Message": "Step function started. Triggering lambda function:lectric-vehicle-data"
+      },
+      "ResultPath": null,
+      "Next": "Run lambda function"
+    },
+    "Run lambda function": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "OutputPath": "$.Payload",
+      "Parameters": {
+        "FunctionName": "*******",
+        "Payload": {
+          "s3-bucket-name.$": "$.bucket_name"
+        }
+      },
+      "Retry": [
+        {
+          "ErrorEquals": [
+            "Lambda.ServiceException",
+            "Lambda.AWSLambdaException",
+            "Lambda.SdkClientException",
+            "Lambda.TooManyRequestsException"
+          ],
+          "IntervalSeconds": 1,
+          "MaxAttempts": 3,
+          "BackoffRate": 2,
+          "JitterStrategy": "FULL"
+        }
+      ],
+      "Next": "Notify: Lambda success, Load lambda function starting",
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "Next": "Notify: Lambda function failure"
+        }
+      ]
+    },
+    "Notify: Lambda success, Load lambda function starting": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::sns:publish",
+      "Parameters": {
+        "TopicArn": "*******",
+        "Message.$": "States.Format('Lambda succeeded for execution {}. Lambda load job will start now.', $$.Execution.Id)"
+      },
+      "ResultPath": null,
+      "Next": "Run lambda load data"
+    },
+    "Run lambda load data": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "OutputPath": "$.Payload",
+      "Parameters": {
+        "Payload.$": "$",
+        "FunctionName": "*******"
+      },
+      "Retry": [
+        {
+          "ErrorEquals": [
+            "Lambda.ServiceException",
+            "Lambda.AWSLambdaException",
+            "Lambda.SdkClientException",
+            "Lambda.TooManyRequestsException"
+          ],
+          "IntervalSeconds": 1,
+          "MaxAttempts": 3,
+          "BackoffRate": 2,
+          "JitterStrategy": "FULL"
+        }
+      ],
+      "Next": "Notify: Data load completed successfully",
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "Next": "Notify: Data load job failed"
+        }
+      ]
+    },
+    "Notify: Lambda function failure": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::sns:publish",
+      "Parameters": {
+        "TopicArn": "*******",
+        "Message": "Lambda function electric-vehicle-data has failed. Please check"
+      },
+      "End": true
+    },
+    "Notify: Data load job failed": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::sns:publish",
+      "Parameters": {
+        "TopicArn": "*******",
+        "Message": "Lambda transform-electric-vehicle-data has failed. Please check."
+      },
+      "End": true
+    },
+    "Notify: Data load completed successfully": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::sns:publish",
+      "Parameters": {
+        "TopicArn": "*******",
+        "Message": "Data load has finished successfully. Step function is completed."
+      },
+      "End": true
+    }
+  }
+}
