@@ -4,6 +4,8 @@
 
 This project focuses on analyzing the population of electric vehicles (EVs) across the United States using publicly available data from Washington State’s Open Data portal. The dataset includes details such as VIN, vehicle make and model, model year, electric range, vehicle type, and registration location (state, county, city).
 
+Washington State’s Open Data Portal link - https://data.wa.gov/Transportation/Electric-Vehicle-Population-Data/f6w7-q2d2/data_preview
+
 The goal of the project is to build an automated AWS data pipeline that ingests, transforms, and stores this dataset for further analysis, providing insights to data analysts, policymakers, and EV enthusiasts.
 
 ---
@@ -19,12 +21,12 @@ This project leverages a fully serverless, event-driven architecture within a se
 | AWS Service               | Purpose                                                                               |
 |---------------------------|---------------------------------------------------------------------------------------|
 | AWS Secrets Manager       | Stores S3 bucket name and PostgreSQL credentials                                      |
-| Amazon EventBridge        | Triggers the pipeline on schedule and injects secrets                                 |
+| Amazon EventBridge        | Triggers the pipeline on schedule and injects secrets as payload to Step Function     |
 | AWS Step Functions        | Orchestrates the entire ETL process                                                   |
-| AWS Lambda                | Extracts data from API and loads it into PostgreSQL                                   |
+| AWS Lambda                | Extracts data, store it in S3, transform the data and loads it into PostgreSQL        |
 | Amazon SNS                | Sends success/failure notifications                                                   |
 | Amazon RDS (PostgreSQL)   | Stores cleaned and structured EV data                                                 |
-| Amazon S3                 | Temporary storage for raw JSON/CSV files                                              |
+| Amazon S3                 | Temporary storage for raw data, stored as csv file                                    |
 | Amazon CloudWatch         | Logs for Lambda, Step Functions, and monitoring                                       |
 | VPC + Endpoints           | Ensures secure communication within the AWS environment                               |
 
@@ -42,7 +44,7 @@ This project leverages a fully serverless, event-driven architecture within a se
 
 3. Loading Phase
 
-   Another Lambda reads the S3 file and loads data into the RDS PostgreSQL instance. A final SNS alert confirms success or failure.
+   Another Lambda reads the S3 file, transforms the data and loads data into the RDS PostgreSQL instance. A final SNS alert confirms success or failure.
 
 4. Security
 
@@ -58,7 +60,7 @@ All services are deployed inside a VPC with appropriate security groups and priv
 
 ## 📊 Architecture Diagram
 
-📎 Replace the image file path below with your final diagram location in your repo.
+Below architecture diagram is as overview of the architecture for the ETL project.
 ![AWS Architecture Diagram](./Flowcharts/AWS_Architecture.png)
 
 ---
