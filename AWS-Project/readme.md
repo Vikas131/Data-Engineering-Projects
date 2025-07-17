@@ -32,14 +32,21 @@ This project leverages a fully serverless, event-driven architecture within a se
 
 ## 🔁 Workflow Summary
 
-**Scheduling & Triggering**  
-EventBridge triggers the Step Function, passing secrets from Secrets Manager.
+1. Scheduling & Triggering
 
-**Extraction Phase**  
-Lambda fetches EV data from the public API and stores it in S3. SNS sends a notification on success or failure.
+   EventBridge triggers the Step Function, passing secrets from Secrets Manager.
 
-**Loading Phase**  
-Another Lambda reads the S3 file and loads data into the RDS PostgreSQL instance. A final SNS alert confirms success or failure.
+2. Extraction Phase
+
+   Lambda fetches EV data from the public API and stores it in S3. SNS sends a notification on success or failure.
+
+3. Loading Phase
+
+   Another Lambda reads the S3 file and loads data into the RDS PostgreSQL instance. A final SNS alert confirms success or failure.
+
+4. Security
+
+   All services are deployed inside a VPC with appropriate security groups and private endpoints for Secrets Manager and S3.
 
 ---
 
@@ -54,4 +61,4 @@ All services are deployed inside a VPC with appropriate security groups and priv
 📎 Replace the image file path below with your final diagram location in your repo.
 
 ```markdown
-![AWS Architecture](./AWS_Architecture.png)
+![AWS Architecture](./Flowcharts/AWS_Architecture.png)
