@@ -61,4 +61,4 @@ All services are deployed inside a VPC with appropriate security groups and priv
 📎 Replace the image file path below with your final diagram location in your repo.
 
 ```markdown
-![AWS Architecture](AWS-Project/Flowcharts/AWS_Architecture.png)
+![AWS Architecture](/Flowcharts/AWS_Architecture.png)
