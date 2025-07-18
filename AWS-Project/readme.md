@@ -121,3 +121,54 @@ This project was implemented using a combination of Python-based data processing
 📈 PostgreSQL Data Warehouse – Final transformed data is stored in RDS for downstream querying and visualization
 
 📄 Logged and Monitored – All Lambda and pipeline execution logs are available via CloudWatch
+
+## 🧪 How to Run the Project
+
+This project runs automatically on a scheduled basis using Amazon EventBridge to trigger a Step Functions workflow that orchestrates two AWS Lambda functions. The pipeline performs data extraction, transformation, and loading into an Amazon RDS PostgreSQL database.
+
+---
+
+### ✅ Prerequisites
+
+#### 📦 AWS Resources Required
+
+- **Amazon S3 bucket** – To temporarily store raw and processed EV data files.  
+- **Amazon RDS (PostgreSQL 13.20)** – For storing the final transformed dataset.  
+- **AWS Secrets Manager** – Stores:  
+  - S3 bucket name  
+  - PostgreSQL host, username, password, database name  
+- **Amazon SNS** – Sends success/failure alerts after each step.  
+- **Step Functions** – Orchestrates the ETL process.  
+- **EventBridge** – Triggers the Step Function on a schedule.  
+- **CloudWatch** – Captures logs and execution metrics.  
+- **AWS Lambda (x2)** –  
+  - Lambda 1: Extract and store to S3  
+  - Lambda 2: Load data to RDS  
+
+---
+
+### 🔐 IAM Configuration
+
+Each Lambda function should use an IAM Role with the following minimum permissions.
+
+---
+
+### 🛡️ VPC & Security Settings
+
+#### 🔐 Security Group for RDS:
+
+- Allow inbound traffic from the Lambda's security group on port `5432` (PostgreSQL default)  
+- No public access to RDS instance  
+
+#### 🌐 VPC Endpoints (Interface):
+
+To ensure secure and private communication within your VPC:
+
+- `com.amazonaws.<region>.s3` – For accessing S3 from Lambda  
+- `com.amazonaws.<region>.secretsmanager` – For fetching secrets  
+
+---
+
+### 🕒 Scheduling with EventBridge
+
+Create a Rule in EventBridge with your desired cron expression.
