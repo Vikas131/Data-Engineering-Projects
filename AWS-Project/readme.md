@@ -99,3 +99,25 @@ This project was implemented using a combination of Python-based data processing
 ### Deployment
 
 - Manual Configuration – All AWS resources were provisioned and configured manually via the AWS Management Console; no infrastructure-as-code tools (e.g., Terraform, CloudFormation, or CDK) were used.
+
+## 🚀 Features
+
+⏰ Scheduled Data Pipeline – Automatically triggered using Amazon EventBridge on a defined schedule
+
+🌐 API-Based Data Extraction – Pulls real-time electric vehicle registration data from Washington’s open data API
+
+🪄 Automated ETL Workflow – Serverless workflow using AWS Step Functions and Lambda
+
+🗂️ Intermediate Data Storage – Saves raw JSON/CSV to Amazon S3 before loading to RDS
+
+🧠 Data Transformation – Cleans and reshapes the dataset using Pandas before database ingestion
+
+🛡️ Secure Credential Handling – Uses AWS Secrets Manager for storing S3 and RDS credentials securely
+
+📬 Success/Failure Notifications – Notifies via Amazon SNS after each pipeline step
+
+🔐 Private Network – All services are deployed within a VPC using interface endpoints for enhanced security
+
+📈 PostgreSQL Data Warehouse – Final transformed data is stored in RDS for downstream querying and visualization
+
+📄 Logged and Monitored – All Lambda and pipeline execution logs are available via CloudWatch
