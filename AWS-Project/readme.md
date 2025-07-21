@@ -154,6 +154,7 @@ Each Lambda function should use an IAM Role with the following minimum permissio
 ---
 
 ### 🛡️ VPC & Security Settings
+Add screenshot
 
 #### 🔐 Security Group for RDS:
 
@@ -161,6 +162,7 @@ Each Lambda function should use an IAM Role with the following minimum permissio
 - No public access to RDS instance  
 
 #### 🌐 VPC Endpoints (Interface):
+Add screenshot
 
 To ensure secure and private communication within your VPC:
 
@@ -170,5 +172,6 @@ To ensure secure and private communication within your VPC:
 ---
 
 ### 🕒 Scheduling with EventBridge
+Add screenshot
 
 Create a Rule in EventBridge with your desired cron expression.
