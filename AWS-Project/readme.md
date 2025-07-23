@@ -150,6 +150,9 @@ This project runs automatically on a scheduled basis using Amazon EventBridge to
 ### 🔐 IAM Configuration
 
 Each Lambda function should use an IAM Role with the following minimum permissions.
+![AWS IAM Configuration](./Configurations/Lambda_IAM_role.png)
+
+![AWS Architecture Diagram](./Configurations/Step_Fn_IAM_role.png)
 
 ---
 
