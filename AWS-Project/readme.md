@@ -167,12 +167,18 @@ Add screenshot
 - No public access to RDS instance  
 
 #### 🌐 VPC Endpoints (Interface):
-Add screenshot
 
 To ensure secure and private communication within your VPC:
 
-- `com.amazonaws.<region>.s3` – For accessing S3 from Lambda  
+- `com.amazonaws.<region>.s3` – For accessing S3 from Lambda
+
+![AWS Architecture Diagram](./Configurations/s3_endpt.png)
+    
 - `com.amazonaws.<region>.secretsmanager` – For fetching secrets  
+
+![AWS Architecture Diagram](./Configurations/secret_manager_endpt_1.png)
+
+![AWS Architecture Diagram](./Configurations/secret_manager_endpt_2.png)
 
 ---
 
