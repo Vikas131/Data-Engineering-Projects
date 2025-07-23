@@ -150,8 +150,10 @@ This project runs automatically on a scheduled basis using Amazon EventBridge to
 ### 🔐 IAM Configuration
 
 Each Lambda function should use an IAM Role with the following minimum permissions.
+Lambda function uses below IAM roles.
 ![AWS IAM Configuration](./Configurations/Lambda_IAM_role.png)
 
+Step function uses below IAM roles
 ![AWS Architecture Diagram](./Configurations/Step_Fn_IAM_role.png)
 
 ---
@@ -175,6 +177,9 @@ To ensure secure and private communication within your VPC:
 ---
 
 ### 🕒 Scheduling with EventBridge
-Add screenshot
 
 Create a Rule in EventBridge with your desired cron expression.
+
+![AWS Architecture Diagram](./Configurations/Eventbridge_rule_1.png)
+
+![AWS Architecture Diagram](./Configurations/Eventbridge_rule_2.png)
