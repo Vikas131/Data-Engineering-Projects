@@ -151,10 +151,10 @@ This project runs automatically on a scheduled basis using Amazon EventBridge to
 
 Each Lambda function should use an IAM Role with the following minimum permissions.
 Lambda function uses below IAM roles.
-![AWS IAM Configuration](./Configurations/Lambda_IAM_role.png)
+![AWS IAM Configuration](./Configurations/Lambda_IAM_role_new.png)
 
 Step function uses below IAM roles
-![AWS Architecture Diagram](./Configurations/Step_Fn_IAM_role.png)
+![AWS Architecture Diagram](./Configurations/Step_Fn_IAM_role_new.png)
 
 ---
 
@@ -172,13 +172,13 @@ To ensure secure and private communication within your VPC:
 
 - `com.amazonaws.<region>.s3` – For accessing S3 from Lambda
 
-![AWS Architecture Diagram](./Configurations/s3_endpt.png)
+![AWS Architecture Diagram](./Configurations/s3_endpt_new.png)
     
 - `com.amazonaws.<region>.secretsmanager` – For fetching secrets  
 
-![AWS Architecture Diagram](./Configurations/secret_manager_endpt_1.png)
+![AWS Architecture Diagram](./Configurations/secret_manager_endpt_1_new.png)
 
-![AWS Architecture Diagram](./Configurations/secret_manager_endpt_2.png)
+![AWS Architecture Diagram](./Configurations/secret_manager_endpt_2_new.png)
 
 ---
 
@@ -186,6 +186,6 @@ To ensure secure and private communication within your VPC:
 
 Create a Rule in EventBridge with your desired cron expression.
 
-![AWS Architecture Diagram](./Configurations/Eventbridge_rule_1.png)
+![AWS Architecture Diagram](./Configurations/Eventbridge_rule_1_new.png)
 
-![AWS Architecture Diagram](./Configurations/Eventbridge_rule_2.png)
+![AWS Architecture Diagram](./Configurations/Eventbridge_rule_2_new.png)
