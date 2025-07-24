@@ -199,9 +199,10 @@ Create a Rule in EventBridge with your desired cron expression.
 - Show the event pattern or schedule expression  
 
 **Step Function Execution**  
-- State machine flow with a successful execution trace  
-- Show timestamp and green checkmarks for each Lambda step  
-- Optionally: failed state (when using retry/catch)  
+- State machine flow with a successful execution trace
+![AWS Architecture Diagram](./Evidence/Step_Fn_evidence.png)
+
+![AWS Architecture Diagram](./Evidence/Step_Fn_success.png)  
 
 ---
 
