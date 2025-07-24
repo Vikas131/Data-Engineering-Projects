@@ -189,3 +189,40 @@ Create a Rule in EventBridge with your desired cron expression.
 ![AWS Architecture Diagram](./Configurations/Eventbridge_rule_1_new.png)
 
 ![AWS Architecture Diagram](./Configurations/Eventbridge_rule_2_new.png)
+
+## 📸 Execution Evidence – Suggested Screenshots
+
+### ✅ Orchestration Layer
+
+**EventBridge Rule**  
+- Screenshot of your cron rule triggering the Step Function  
+- Show the event pattern or schedule expression  
+
+**Step Function Execution**  
+- State machine flow with a successful execution trace  
+- Show timestamp and green checkmarks for each Lambda step  
+- Optionally: failed state (when using retry/catch)  
+
+---
+
+### ⚙️ ETL Steps
+
+**Lambda Logs in CloudWatch**  
+Logs showing:  
+- `requests.get()` successfully fetched data  
+- File stored to raw S3 path  
+- Transformation summary (e.g., columns transformed, nulls handled)  
+- Final confirmation that output was uploaded to processed/  
+
+**S3 Buckets**  
+- `raw/` bucket: Show the JSON/CSV file  
+- `processed/` bucket: Transformed CSV or summary file  
+- Include timestamps to show the job is periodic  
+
+---
+
+### 📊 Output and Results
+
+**Summary Stats Output**  
+- Screenshot of CSV preview (e.g., top 10 EV makes, models, etc.)  
+- Optional: Table/graph screenshot if you’ve visualized the results locally  
