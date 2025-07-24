@@ -220,10 +220,10 @@ Logs showing:
 
 ![AWS Architecture Diagram](./Evidence/lambda_transform_log.png)
 
-**S3 Buckets**  
-- `raw/` bucket: Show the JSON/CSV file  
-- `processed/` bucket: Transformed CSV or summary file  
-- Include timestamps to show the job is periodic  
+**S3 Bucket**  
+- `raw/` bucket: CSV file
+
+![AWS Architecture Diagram](./Evidence/s3_bucket_info.png)
 
 ---
 
