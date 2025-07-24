@@ -210,10 +210,15 @@ Create a Rule in EventBridge with your desired cron expression.
 
 **Lambda Logs in CloudWatch**  
 Logs showing:  
-- `requests.get()` successfully fetched data  
-- File stored to raw S3 path  
-- Transformation summary (e.g., columns transformed, nulls handled)  
-- Final confirmation that output was uploaded to processed/  
+- successfully fetched data  
+- File stored to raw S3 path
+
+![AWS Architecture Diagram](./Evidence/lambda_extract_log.png) 
+  
+- Transformation summary (e.g., columns transformed, date column addition)  
+- Final confirmation that data was written to Postgres DB
+
+![AWS Architecture Diagram](./Evidence/lambda_transform_log.png)
 
 **S3 Buckets**  
 - `raw/` bucket: Show the JSON/CSV file  
