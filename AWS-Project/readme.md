@@ -281,8 +281,8 @@ Due to debugging complexity and Spark’s cold start time, the Glue job was repl
 ## 🧑‍💻 Author
 
 - Name: Vikas Suvarna Kumar  
-- LinkedIn: [linkedin](https://www.linkedin.com/in/vikas-suvarna-kumar/)  
-- GitHub: [github](https://github.com/Vikas131)
+- LinkedIn: [vikas-suvarna-kumar](https://www.linkedin.com/in/vikas-suvarna-kumar/)  
+- GitHub: [Vikas131](https://github.com/Vikas131)
 
 ## 📄 License
 
