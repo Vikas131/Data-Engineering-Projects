@@ -1,0 +1,15 @@
+CREATE TABLE electric_vehicle_us
+(
+    vin_code text,
+    county text,
+    city text,
+    state text,
+    postal_code integer,
+    model_year integer,
+    make text,
+    model_name text,
+    vehicle_type text,
+    electric_range integer,
+    loaddate date NOT NULL,
+    PRIMARY KEY (vin_code, postal_code, loaddate)
+)
