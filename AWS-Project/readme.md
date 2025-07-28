@@ -159,12 +159,12 @@ Step function uses below IAM roles
 ---
 
 ### 🛡️ VPC & Security Settings
-Add screenshot
 
 #### 🔐 Security Group for RDS:
 
 - Allow inbound traffic from the Lambda's security group on port `5432` (PostgreSQL default)  
-- No public access to RDS instance  
+- Public access for RDS(temporary, since its personal project)
+- Attach self security group to the security group rules 
 
 #### 🌐 VPC Endpoints (Interface):
 
@@ -230,5 +230,7 @@ Logs showing:
 ### 📊 Output and Results
 
 **Summary Stats Output**  
-- Screenshot of CSV preview (e.g., top 10 EV makes, models, etc.)  
-- Optional: Table/graph screenshot if you’ve visualized the results locally  
+- Screenshot of CSV preview (e.g., top 10 EV makes, models, etc.)
+  
+- Postgres RDS Data:
+   
