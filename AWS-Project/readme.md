@@ -243,4 +243,32 @@ Logs showing:
   Simple analysis to check which brand, model, model_year has more cars:
   
   ![AWS Architecture Diagram](./Evidence/rds-table-result-3.png)
+
+
+## ⚠️ Challenges Faced
+
+### ❌ Initial Attempt: Using AWS Glue Job to Load Data into Postgres
+
+The original design intended to use AWS Glue (Spark ETL) to transform and load processed data directly into a Postgres database. However, this approach ran into persistent execution failures, such as:
+GlueBootstrap: Bootstrapping failed ... 
+Caused by: java.net.ConnectException: Connection refused
+
+**Error Highlights:**
+- Spark executor backend failed to connect to the driver
+- Connection refused errors during job startup
+
+**Root Cause:**
+- Network misconfiguration (VPC/subnet/security group settings)
+- Glue job couldn't reach the Postgres DB or its own driver node
+
+---
+
+### ✅ Resolution: Switched to Lambda-Based Transformation
+
+Due to debugging complexity and Spark’s cold start time, the Glue job was replaced with a second Lambda function:
+
+- Performs transformations using `pandas`
+- Stores results to DB via `psycopg2`
+- Reduced cost, complexity, and improved reliability
+
    
