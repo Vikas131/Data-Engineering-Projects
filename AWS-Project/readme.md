@@ -237,8 +237,10 @@ Logs showing:
   ![AWS Architecture Diagram](./Evidence/rds-table-result-1.png)
 
   Count of records in table:
+  
   ![AWS Architecture Diagram](./Evidence/rds-table-result-2.png)
 
   Simple analysis to check which brand, model, model_year has more cars:
+  
   ![AWS Architecture Diagram](./Evidence/rds-table-result-3.png)
    
