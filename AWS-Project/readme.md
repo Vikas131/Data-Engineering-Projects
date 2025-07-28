@@ -271,4 +271,10 @@ Due to debugging complexity and Spark’s cold start time, the Glue job was repl
 - Stores results to DB via `psycopg2`
 - Reduced cost, complexity, and improved reliability
 
+## 🚀 Future Improvements
+
+- Add CI/CD via AWS CodePipeline or GitHub Actions  
+- Integrate AWS QuickSight for dashboarding  
+- Add unit tests and data quality validation steps  
+- Optionally reintroduce Glue Python Shell job for DB loading  
    
