@@ -10,6 +10,6 @@ CREATE TABLE electric_vehicle_us
     model_name text,
     vehicle_type text,
     electric_range integer,
-    loaddate date NOT NULL,
+    loaddate date,
     PRIMARY KEY (vin_code, postal_code, loaddate)
 )
