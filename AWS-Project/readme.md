@@ -277,4 +277,14 @@ Due to debugging complexity and Spark’s cold start time, the Glue job was repl
 - Integrate AWS QuickSight for dashboarding  
 - Add unit tests and data quality validation steps  
 - Optionally reintroduce Glue Python Shell job for DB loading  
-   
+
+## 🧑‍💻 Author
+
+- Name: Vikas Suvarna Kumar  
+- LinkedIn: [your-link](https://www.linkedin.com/in/vikas-suvarna-kumar/)  
+- GitHub: [your-github](https://github.com/Vikas131)
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
