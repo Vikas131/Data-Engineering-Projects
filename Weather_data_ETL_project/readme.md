@@ -43,4 +43,31 @@ The pipeline follows an **Extract → Load → Transform → Visualize** workflo
 ### 4. Visualize
 - Apache Superset connects to Postgres and builds interactive dashboards using the daily_average and weather_report tables.
 
+## Setup & Running Locally
 
+### 1. Clone the Repository
+```bash
+git clone <repo-url>
+cd <repo-folder>
+
+### 2. Configure Environment Variables
+Refer the .env file and replace variable as required:
+WEATHERSTACK_API_KEY=your_api_key
+POSTGRES_USER=your_db_user
+POSTGRES_PASSWORD=your_db_password
+POSTGRES_DB=your_db_name
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+
+### 3. Start Services with Docker Compose
+docker-compose up -d
+This will start:
+- Postgres database
+- Airflow (webserver & scheduler)
+- dbt (for transformations)
+- Superset (for visualization)
+
+### 4. Access Services
+Airflow: http://localhost:8080
+Superset: http://localhost:8088
+Postgres: connect via localhost:5432 with your credentials
