@@ -71,3 +71,6 @@ This will start:
 Airflow: http://localhost:8080
 Superset: http://localhost:8088
 Postgres: connect via localhost:5432 with your credentials
+
+### 5. Trigger the Pipeline
+Either trigger the Airflow DAG manually via the web UI or let the scheduled DAG run automatically.
