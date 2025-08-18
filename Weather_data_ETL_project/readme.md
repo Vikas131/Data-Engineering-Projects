@@ -20,7 +20,7 @@ The pipeline is designed for **reproducibility, scalability, and easy deployment
 
 The pipeline follows an **Extract → Load → Transform → Visualize** workflow:
 
-![Architecture Diagram](./images/data_flow.png)
+![Architecture Diagram](./images/Weather_data_ETL_flow.png)
 
 
 ## Workflow Details
