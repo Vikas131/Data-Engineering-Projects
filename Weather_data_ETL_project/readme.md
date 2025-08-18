@@ -23,12 +23,12 @@ The pipeline follows an **Extract → Load → Transform → Visualize** workflo
 ```mermaid
 flowchart LR
     A[Weatherstack API] --> B[extract.py]
-    B --> C[insert_data.py → Postgres raw_data]
+    B --> C[insert_data.py - Postgres raw_data]
     C --> D[dbt Transformations]
     D --> D1[daily_average table]
     D --> D2[weather_report table]
-    D1 --> E[Apache Superset Dashboards]
-    D2 --> E[Apache Superset Dashboards]
+    D1 --> E[Superset Dashboards]
+    D2 --> E[Superset Dashboards]
 
     subgraph Orchestration
         F[Apache Airflow]
