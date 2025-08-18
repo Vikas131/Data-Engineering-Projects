@@ -25,19 +25,22 @@ The pipeline follows an **Extract → Load → Transform → Visualize** workflo
 
 ## Workflow Details
 
-1. **Extract & Load**  
-   - `extract.py` fetches weather data from the Weatherstack API.  
-   - `insert_data.py` stores the raw JSON into Postgres (`raw_data` table).  
+### 1. Orchestration
+- The entire pipeline is orchestrated by **Apache Airflow**, which schedules and monitors all steps automatically.  
+- Airflow triggers the data ingestion and transformation tasks, including running the dbt container for transformations.
 
-2. **Transform**  
-   - dbt reads raw data from Postgres, cleans and structures it.  
-   - Creates two analytics-ready tables:  
-     - `daily_average` → aggregates daily weather metrics  
-     - `weather_report` → curated dataset for reporting and dashboards  
+### 2. Extract & Load
+- `api_request.py` fetches weather data from the Weatherstack API, using the API key stored within the script.  
+- `insert_data.py` connects to Postgres via **psycopg2**, creates the `dev.raw_weather_data` table if it doesn’t exist, and inserts the raw JSON data fetched by `api_request.py`.
 
-3. **Visualize**  
-   - Apache Superset connects to Postgres and builds interactive dashboards using the two data marts.  
+### 3. Transform
+- `sources.yml` defines the structure and column names for `dev.raw_weather_data`, serving as the blueprint for dbt transformations.  
+- `stg_weather_data` is created by cleaning, deduplicating, and standardizing the raw data.  
+- Two analytics-ready tables (data marts) are generated:  
+  - `daily_average` → aggregates daily weather metrics  
+  - `weather_report` → curated dataset for reporting and dashboards
 
-4. **Orchestration**  
-   - Apache Airflow schedules and monitors all steps automatically.
+### 4. Visualize
+- Apache Superset connects to Postgres and builds interactive dashboards using the daily_average and weather_report tables.
+
 
