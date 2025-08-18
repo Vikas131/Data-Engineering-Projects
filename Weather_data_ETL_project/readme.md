@@ -20,22 +20,7 @@ The pipeline is designed for **reproducibility, scalability, and easy deployment
 
 The pipeline follows an **Extract → Load → Transform → Visualize** workflow:
 
-```mermaid
-flowchart LR
-    A[Weatherstack API] --> B[extract.py]
-    B --> C[insert_data.py - Postgres raw_data]
-    C --> D[dbt Transformations]
-    D --> D1[daily_average table]
-    D --> D2[weather_report table]
-    D1 --> E[Superset Dashboards]
-    D2 --> E[Superset Dashboards]
-
-    subgraph Orchestration
-        F[Apache Airflow]
-        F --> B
-        F --> C
-        F --> D
-    end
+![Architecture Diagram](./images/data_flow.png)
 
 
 ## Workflow Details
