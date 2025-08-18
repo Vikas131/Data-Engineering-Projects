@@ -74,3 +74,14 @@ Postgres: connect via localhost:5432 with your credentials
 
 ### 5. Trigger the Pipeline
 Either trigger the Airflow DAG manually via the web UI or let the scheduled DAG run automatically.
+```
+
+## Future Improvements
+
+- **Additional Data Sources**: Integrate other weather APIs or sensors to enrich the dataset.  
+- **Advanced Analytics**: Implement forecasting, anomaly detection, or trend analysis.  
+- **Alerting & Notifications**: Set up automated alerts for extreme weather conditions.  
+- **CI/CD for dbt Models**: Automate testing and deployment of transformations.  
+- **Enhanced Superset Dashboards**: Add more interactive visualizations and KPIs.  
+- **Data Quality Monitoring**: Introduce automated checks for missing or inconsistent data.  
+- **Scalability**: Optimize the pipeline for higher data volumes and multiple locations.
