@@ -45,8 +45,8 @@ The pipeline follows an **Extract → Load → Transform → Visualize** workflo
 
 ## Setup & Running Locally
 
-### 1. Clone the Repository
 ```bash
+### 1. Clone the Repository
 git clone <repo-url>
 cd <repo-folder>
 
