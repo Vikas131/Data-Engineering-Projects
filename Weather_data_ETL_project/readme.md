@@ -1,12 +1,12 @@
 # Weather Data ETL Pipeline
 
-## Project Overview
+## 📘 Project Overview
 This project implements a fully containerized data pipeline for automating the extraction, storage, transformation, and visualization of weather data.  
 Weather data is extracted from the [Weatherstack API](https://weatherstack.com/) and ingested into a **Postgres** database as raw JSON. Using **dbt**, the raw data is cleaned, structured, and aggregated into analytics-ready models. The entire workflow is orchestrated with **Apache Airflow**, ensuring automated scheduling and monitoring. Finally, the curated datasets are visualized in **Apache Superset** dashboards for insights into daily and historical weather trends.  
 
 The pipeline is designed for **reproducibility, scalability, and easy deployment**, all running seamlessly inside **Docker containers**.
 
-## Features
+## 🚀 Features
 
 - **Automated Orchestration**: Apache Airflow schedules and manages the pipeline.  
 - **Containerized Deployment**: Docker ensures easy setup and reproducibility.  
@@ -16,14 +16,14 @@ The pipeline is designed for **reproducibility, scalability, and easy deployment
 - **Scalable & Extensible**: Easily add new locations, parameters, or data sources.  
 - **Reproducible & Reliable**: Idempotent ingestion and dbt tests ensure data quality.
 
-## Architecture
+## 🏗️ Architecture Overview
 
 The pipeline follows an **Extract → Load → Transform → Visualize** workflow:
 
 ![Architecture Diagram](./images/Weather_data_ETL_flow.png)
 
 
-## Workflow Details
+## 🔁 Workflow Details
 
 ### 1. Orchestration
 - The entire pipeline is orchestrated by **Apache Airflow**, which schedules and monitors all steps automatically.  
@@ -43,7 +43,7 @@ The pipeline follows an **Extract → Load → Transform → Visualize** workflo
 ### 4. Visualize
 - Apache Superset connects to Postgres and builds interactive dashboards using the daily_average and weather_report tables.
 
-## Setup & Running Locally
+## 🧪 Setup & Running Locally
 
 ```bash
 ### 1. Clone the Repository
@@ -76,7 +76,7 @@ Postgres: connect via localhost:5432 with your credentials
 Either trigger the Airflow DAG manually via the web UI or let the scheduled DAG run automatically.
 ```
 
-## Future Improvements
+## 🚀 Future Improvements
 
 - **Additional Data Sources**: Integrate other weather APIs or sensors to enrich the dataset.  
 - **Advanced Analytics**: Implement forecasting, anomaly detection, or trend analysis.  
@@ -85,3 +85,13 @@ Either trigger the Airflow DAG manually via the web UI or let the scheduled DAG 
 - **Enhanced Superset Dashboards**: Add more interactive visualizations and KPIs.  
 - **Data Quality Monitoring**: Introduce automated checks for missing or inconsistent data.  
 - **Scalability**: Optimize the pipeline for higher data volumes and multiple locations.
+
+## 🧑‍💻 Author
+
+- Name: Vikas Suvarna Kumar  
+- LinkedIn: [vikas-suvarna-kumar](https://www.linkedin.com/in/vikas-suvarna-kumar/)  
+- GitHub: [Vikas131](https://github.com/Vikas131)
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
