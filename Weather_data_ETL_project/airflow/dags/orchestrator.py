@@ -12,9 +12,6 @@ def safe_main_callable():
     from insert_data import main
     return main()
 
-# def example_task():
-#     print("THis is an exmaple task.")
-
 args = {
     'description': 'A DAG to orchestrate weather api data',
     'start_date': datetime(2025,8,13),
@@ -39,10 +36,10 @@ with dag:
         command = 'run',
         working_dir = '/usr/app',
         mounts=[
-            Mount(source='/mnt/d/Data-Analysis/Projects/Data_Engineering/WeatherAPI_ETL_Project/dbt/my_project',
+            Mount(source='../dbt/my_project',
                   target='/usr/app',
                   type='bind'),
-            Mount(source='/mnt/d/Data-Analysis/Projects/Data_Engineering/WeatherAPI_ETL_Project/dbt/profiles.yml',
+            Mount(source='../dbt/profiles.yml',
                   target='/root/.dbt/profiles.yml',
                   type='bind')
         ],
