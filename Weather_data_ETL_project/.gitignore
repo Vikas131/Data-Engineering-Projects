@@ -1,0 +1,3 @@
+api-request/_pycache_
+api-request/.env
+airflow/dags/_pycache_
