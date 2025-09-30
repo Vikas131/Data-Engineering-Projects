@@ -76,6 +76,19 @@ Postgres: connect via localhost:5432 with your credentials
 Either trigger the Airflow DAG manually via the web UI or let the scheduled DAG run automatically.
 ```
 
+## 📊 Output and Results
+
+**Airflow Execution Evidence**
+
+![Airflow Diagram](./images/airflow.png)
+
+**Sample Superset Dashboard Output**
+- Weather data report(Temperature in 3 cities for 5 days):
+  ![Weather_Data Diagram](./images/weather-data-chart.jpg)
+
+- Weather data report(Temperature And Wind Speed in 3 cities for 5 days):
+  ![Weather_Data Diagram](./images/temperature-wind-speed.jpg)
+
 ## 🚀 Future Improvements
 
 - **Additional Data Sources**: Integrate other weather APIs or sensors to enrich the dataset.  
